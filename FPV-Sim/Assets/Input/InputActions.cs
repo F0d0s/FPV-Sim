@@ -70,7 +70,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""id"": ""3b738104-ca0e-480e-bcae-043cce4edacf"",
                     ""path"": ""<HID::OpenTX RM TX16S Joystick>/z"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""Throttle"",
                     ""groups"": """",
                     ""action"": ""Throttle"",
                     ""isComposite"": false,

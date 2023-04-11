@@ -11,7 +11,7 @@ public class DroneMovement : MonoBehaviour
     private Rigidbody rb;
     private float throttle;
     private float roll;
-    private float x = 20;
+    private float tStrength = 20;
 
     public InputActions inputActions;
     // Start is called before the first frame update
@@ -32,9 +32,14 @@ public class DroneMovement : MonoBehaviour
     {
         roll = inputActions.Drone.Roll.ReadValue<float>();
         throttle = inputActions.Drone.Throttle.ReadValue<float>();
-        Debug.Log(throttle);
         
-        rb.AddRelativeForce(0,throttle * x, 0);
+        
+        
+    }
+
+    private void FixedUpdate()
+    {
+        rb.AddRelativeForce(0,throttle * tStrength, 0);
     }
 
     private void Throttle()

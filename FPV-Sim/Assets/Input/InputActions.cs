@@ -50,7 +50,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""d2027b3a-9aaa-4487-a29e-334ac7d9b814"",
                     ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
+                    ""processors"": ""Invert"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
@@ -59,7 +59,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""71b0fdf6-b9cb-4330-afea-ad0ea088016e"",
                     ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
+                    ""processors"": ""Invert"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 }
@@ -156,7 +156,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""negative"",
                     ""id"": ""b8802127-0ecf-4753-9176-0882f0fc5252"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -167,7 +167,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""566108fe-5276-43e9-8e1c-0c5701d7e2a5"",
-                    ""path"": ""<Keyboard>/d"",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -191,7 +191,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""id"": ""2313d2e5-b340-46be-b0f2-bc14286109a0"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
-                    ""processors"": ""Invert"",
+                    ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pitch"",
                     ""isComposite"": true,

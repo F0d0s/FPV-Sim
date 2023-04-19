@@ -31,6 +31,7 @@ public class DroneMovement : MonoBehaviour
     private float groundEffectDistance;
     private RaycastHit groundEffectHit;
     private bool nearGround;
+    
     private void Awake()
     {
         inputActions = new InputActions();
@@ -51,14 +52,16 @@ public class DroneMovement : MonoBehaviour
         {
             groundEffect = 1;
         }
-        Debug.Log(groundEffect);
+
     }
 
     private void FixedUpdate()
     {
-        droneQuaternion = Quaternion.Euler(pitch * pSens * Time.deltaTime, yaw * ySens * Time.deltaTime, roll * rSens * Time.deltaTime);
         _rb.AddRelativeForce(0,throttle * tSens * groundEffect, 0);
-        _rb.MoveRotation(_rb.rotation * droneQuaternion);
+        _rb.AddRelativeTorque(
+            pitch * pSens * 6.75f * Time.deltaTime,
+            yaw * ySens * 6.75f * Time.deltaTime,
+            roll * rSens * 6.75f * Time.deltaTime);
         
     }
 

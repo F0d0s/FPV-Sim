@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 2e81b71144d13a448bbca1ad6ca5a4ee
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Komika Slim
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: e33377b1b6e2da444b42d920d34cd289, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

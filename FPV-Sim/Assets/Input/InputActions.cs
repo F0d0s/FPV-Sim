@@ -62,6 +62,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": ""Invert"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Arm"",
+                    ""type"": ""Value"",
+                    ""id"": ""f73749ca-bd09-42f9-8754-f978782a328d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -218,6 +227,28 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Pitch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1b511dd9-bc2f-45fe-8179-c6e24b7a8f0a"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": ""Tap(duration=0.2,pressPoint=0.5)"",
+                    ""processors"": ""Arm"",
+                    ""groups"": """",
+                    ""action"": ""Arm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0b702f5e-116f-43b8-b777-d72ef6dfc5ba"",
+                    ""path"": ""<HID::OpenTX RM TX16S Joystick>/ry"",
+                    ""interactions"": """",
+                    ""processors"": ""Invert"",
+                    ""groups"": """",
+                    ""action"": ""Arm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -230,6 +261,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Drone_Yaw = m_Drone.FindAction("Yaw", throwIfNotFound: true);
         m_Drone_Roll = m_Drone.FindAction("Roll", throwIfNotFound: true);
         m_Drone_Pitch = m_Drone.FindAction("Pitch", throwIfNotFound: true);
+        m_Drone_Arm = m_Drone.FindAction("Arm", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -293,6 +325,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Drone_Yaw;
     private readonly InputAction m_Drone_Roll;
     private readonly InputAction m_Drone_Pitch;
+    private readonly InputAction m_Drone_Arm;
     public struct DroneActions
     {
         private @InputActions m_Wrapper;
@@ -301,6 +334,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @Yaw => m_Wrapper.m_Drone_Yaw;
         public InputAction @Roll => m_Wrapper.m_Drone_Roll;
         public InputAction @Pitch => m_Wrapper.m_Drone_Pitch;
+        public InputAction @Arm => m_Wrapper.m_Drone_Arm;
         public InputActionMap Get() { return m_Wrapper.m_Drone; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -322,6 +356,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Pitch.started -= m_Wrapper.m_DroneActionsCallbackInterface.OnPitch;
                 @Pitch.performed -= m_Wrapper.m_DroneActionsCallbackInterface.OnPitch;
                 @Pitch.canceled -= m_Wrapper.m_DroneActionsCallbackInterface.OnPitch;
+                @Arm.started -= m_Wrapper.m_DroneActionsCallbackInterface.OnArm;
+                @Arm.performed -= m_Wrapper.m_DroneActionsCallbackInterface.OnArm;
+                @Arm.canceled -= m_Wrapper.m_DroneActionsCallbackInterface.OnArm;
             }
             m_Wrapper.m_DroneActionsCallbackInterface = instance;
             if (instance != null)
@@ -338,6 +375,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Pitch.started += instance.OnPitch;
                 @Pitch.performed += instance.OnPitch;
                 @Pitch.canceled += instance.OnPitch;
+                @Arm.started += instance.OnArm;
+                @Arm.performed += instance.OnArm;
+                @Arm.canceled += instance.OnArm;
             }
         }
     }
@@ -348,5 +388,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnYaw(InputAction.CallbackContext context);
         void OnRoll(InputAction.CallbackContext context);
         void OnPitch(InputAction.CallbackContext context);
+        void OnArm(InputAction.CallbackContext context);
     }
 }

@@ -40,6 +40,15 @@
                     "processors": "Invert",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Arm",
+                    "type": "Value",
+                    "id": "f73749ca-bd09-42f9-8754-f978782a328d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -196,6 +205,28 @@
                     "action": "Pitch",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "1b511dd9-bc2f-45fe-8179-c6e24b7a8f0a",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "Tap(duration=0.2,pressPoint=0.5)",
+                    "processors": "Arm",
+                    "groups": "",
+                    "action": "Arm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0b702f5e-116f-43b8-b777-d72ef6dfc5ba",
+                    "path": "<HID::OpenTX RM TX16S Joystick>/ry",
+                    "interactions": "",
+                    "processors": "Invert",
+                    "groups": "",
+                    "action": "Arm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

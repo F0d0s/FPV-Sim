@@ -27,8 +27,8 @@ public class ThrottleProcessor : InputProcessor<float>
 
     public override float Process(float value, InputControl control)
     {
-        if(value != 0)
-            return (value + 1) / 2;
-        return 0;
+        
+        return (value + 1) / 2;
+        
     }
 }
